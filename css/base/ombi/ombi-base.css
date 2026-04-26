@@ -1460,3 +1460,139 @@ hr {
     color: var(--button-text) !important;
     border-radius: 8px;
 }
+
+/* ---- Redesigned sidebar + top bar (my-nav.component) ----
+   The whole nav was rebuilt: .application-name → .sidebar-brand .brand-link,
+   .active-list-item → .nav-item--active, plus brand-new .nav-item, .nav-icon,
+   .nav-indicator, .top-bar, .hamburger-btn, .profile-* classes. */
+
+.sidebar-brand .brand-link {
+    color: rgb(var(--accent-color)) !important;
+}
+
+.sidebar-brand .brand-link:hover,
+.sidebar-brand .brand-link:focus,
+.sidebar-brand .brand-link:active {
+    color: rgb(var(--accent-color)) !important;
+}
+
+.sidebar-nav {
+    color: var(--text) !important;
+}
+
+.nav-section-label {
+    color: var(--text-muted) !important;
+}
+
+.nav-item {
+    color: var(--text) !important;
+    background: transparent !important;
+}
+
+.nav-item:hover {
+    background: var(--transparency-light-10) !important;
+    color: var(--text-hover) !important;
+}
+
+.nav-item .nav-indicator {
+    background: rgb(var(--accent-color)) !important;
+}
+
+.nav-item--active,
+.nav-item.nav-item--active {
+    background: var(--transparency-light-15) !important;
+    color: rgb(var(--accent-color)) !important;
+}
+
+.nav-item--active:hover {
+    background: var(--transparency-light-25) !important;
+    color: rgb(var(--accent-color)) !important;
+}
+
+.nav-item--active .nav-icon {
+    color: rgb(var(--accent-color)) !important;
+}
+
+.nav-icon,
+.nav-label,
+.nav-external-icon {
+    color: inherit !important;
+}
+
+.nav-action {
+    color: inherit !important;
+    background: transparent !important;
+}
+
+.nav-action:hover {
+    background: var(--transparency-light-10) !important;
+}
+
+.nav-divider {
+    background: var(--transparency-light-10) !important;
+}
+
+.sidebar-footer {
+    color: var(--text-muted) !important;
+    border-top: 1px solid var(--transparency-light-10) !important;
+}
+
+/* Top bar (above main content) */
+.top-bar {
+    background: var(--transparency-dark-45) !important;
+    border-bottom: 1px solid var(--transparency-light-10) !important;
+}
+
+.hamburger-btn {
+    color: var(--text-hover) !important;
+    background: transparent !important;
+}
+
+.hamburger-btn:hover {
+    background: var(--transparency-light-10) !important;
+    color: var(--text-hover) !important;
+}
+
+/* Top-bar filter chips (Movies / TV Shows). Distinct from the requests-list
+   .chip — the top-bar version sits inside .top-bar and uses an accent-tinted
+   active state. Scope via .top-bar to avoid clashing with requests-list .chip. */
+.top-bar .chip {
+    background: transparent !important;
+    border: 1px solid var(--transparency-light-15) !important;
+    color: var(--text) !important;
+}
+
+.top-bar .chip:hover {
+    background: var(--transparency-light-10) !important;
+    border-color: var(--transparency-light-25) !important;
+    color: var(--text-hover) !important;
+}
+
+.top-bar .chip.active,
+.top-bar .chip--active {
+    background: rgba(var(--accent-color), 0.2) !important;
+    border-color: rgb(var(--accent-color)) !important;
+    color: rgb(var(--accent-color)) !important;
+}
+
+/* Profile pill */
+.profile-link {
+    color: var(--text) !important;
+}
+
+.profile-link:hover {
+    background: var(--transparency-light-10) !important;
+    color: var(--text-hover) !important;
+}
+
+.profile-username {
+    color: inherit !important;
+}
+
+.profile-avatar {
+    border: 2px solid var(--transparency-light-15) !important;
+}
+
+.profile-link:hover .profile-avatar {
+    box-shadow: 0 0 0 2px rgba(var(--accent-color), 0.4) !important;
+}
