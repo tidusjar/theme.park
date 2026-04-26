@@ -777,6 +777,10 @@ hr {
     color: var(--text-muted) !important;
 }
 
+.input-wrapper--focused .input-icon {
+    color: rgb(var(--accent-color)) !important;
+}
+
 .login-input {
     color: var(--text) !important;
     background: transparent !important;
@@ -797,12 +801,14 @@ hr {
 }
 
 .custom-checkbox .checkmark {
-    background: var(--transparency-dark-25) !important;
-    border: 1px solid var(--transparency-light-15) !important;
+    border-color: var(--transparency-light-25) !important;
 }
 
-.custom-checkbox input:checked ~ .checkmark {
+.custom-checkbox .checkmark::after {
     background: rgb(var(--accent-color)) !important;
+}
+
+.custom-checkbox input:checked + .checkmark {
     border-color: rgb(var(--accent-color)) !important;
 }
 
@@ -817,7 +823,8 @@ hr {
     color: var(--link-color-hover) !important;
 }
 
-.btn-login,
+/* Only style the themed CTAs; OAuth brand buttons (.btn-login--plex,
+   --emby, --jellyfin) keep their own brand colors */
 .btn-login--primary,
 .btn-submit {
     background-color: var(--button-color) !important;
@@ -825,7 +832,6 @@ hr {
     border: 1px solid var(--button-color) !important;
 }
 
-.btn-login:hover,
 .btn-login--primary:hover,
 .btn-submit:hover {
     background-color: var(--button-color-hover) !important;
@@ -835,11 +841,6 @@ hr {
 
 .btn-arrow {
     color: inherit !important;
-}
-
-/* Plex login button keeps its brand gold; just ensure the text is readable */
-.btn-login--plex {
-    color: #1a1a2e !important;
 }
 
 /* ---- Hero banner (discover page) ---- */
@@ -989,6 +990,10 @@ hr {
 
 .cast-profile-img {
     border: 3px solid var(--transparency-light-10) !important;
+}
+
+.cast-card:hover .cast-profile-img {
+    border-color: rgb(var(--accent-color)) !important;
 }
 
 .cast-placeholder-icon {
@@ -1238,7 +1243,8 @@ hr {
     color: var(--text-hover) !important;
 }
 
-.empty-state {
+.empty-state,
+.empty-state h3 {
     color: var(--text-muted) !important;
 }
 
@@ -1257,7 +1263,10 @@ hr {
     border-radius: 6px;
 }
 
-.requests-page :where(.mat-paginator) {
+/* The new requests grid uses :host ::ng-deep .mat-paginator !important
+   (specificity 0,2,0). Match it with a 2-class selector + !important. */
+.requests-page .mat-paginator,
+.request-card .mat-paginator {
     background: var(--transparency-dark-25) !important;
     color: var(--text) !important;
 }
